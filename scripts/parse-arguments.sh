@@ -28,7 +28,6 @@ SUPPORTED_LIBRARIES_FREE=(
   "libfreetype"
   "libfribidi"
   "mbedtls"
-  "libbluray"
   "libxml2"
 )
 
@@ -124,9 +123,6 @@ for argument in "$@"; do
   --enable-mbedtls | -mbedtls)
     EXTERNAL_LIBRARIES+=("mbedtls")
     ;;
-  --enable-libbluray | -bluray)
-    EXTERNAL_LIBRARIES+=("libbluray")
-    ;; 
   --enable-libxml2 | -xml2)
     EXTERNAL_LIBRARIES+=("libxml2")
     ;;
