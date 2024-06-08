@@ -47,7 +47,7 @@ PARAM_STATIC=$([ "$ENABLE_STATIC" -eq 1 ] && echo "--enable-static" || echo "--d
   ${PARAM_SHARED} \
   ${PARAM_STATIC} \
   --disable-vulkan \
-  --pkg-config=${PKG_CONFIG_EXECUTABLE} \
+  --pkg-config="${PKG_CONFIG_EXECUTABLE} --static" \
   ${EXTRA_BUILD_CONFIGURATION_FLAGS} \
   $ADDITIONAL_COMPONENTS \
   --extra-libs=-static || exit 1
