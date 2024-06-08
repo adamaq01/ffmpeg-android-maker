@@ -42,14 +42,15 @@ PARAM_STATIC=$([ "$ENABLE_STATIC" -eq 1 ] && echo "--enable-static" || echo "--d
   --nm=${FAM_NM} \
   --ranlib=${FAM_RANLIB} \
   --strip=${FAM_STRIP} \
-  --extra-cflags="-O3 -fPIC $DEP_CFLAGS" \
+  --extra-cflags="-O3 -fPIC $DEP_CFLAGS --static" \
   --extra-ldflags="$DEP_LD_FLAGS" \
   ${PARAM_SHARED} \
   ${PARAM_STATIC} \
   --disable-vulkan \
   --pkg-config=${PKG_CONFIG_EXECUTABLE} \
   ${EXTRA_BUILD_CONFIGURATION_FLAGS} \
-  $ADDITIONAL_COMPONENTS || exit 1
+  $ADDITIONAL_COMPONENTS \
+  --extra-libs=-static || exit 1
 
 ${MAKE_EXECUTABLE} clean
 ${MAKE_EXECUTABLE} -j${HOST_NPROC}
