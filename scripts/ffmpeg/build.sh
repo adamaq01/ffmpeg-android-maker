@@ -50,7 +50,7 @@ PARAM_STATIC=$([ "$ENABLE_STATIC" -eq 1 ] && echo "--enable-static" || echo "--d
   --pkg-config="${PKG_CONFIG_EXECUTABLE} --static" \
   ${EXTRA_BUILD_CONFIGURATION_FLAGS} \
   $ADDITIONAL_COMPONENTS \
-  --enable-mediacodec --enable-jni \
+  --enable-mediacodec --enable-jni --enable-hwaccels --enable-decoder=h264_mediacodec \
   --extra-libs=-static || exit 1
 
 ${MAKE_EXECUTABLE} clean
